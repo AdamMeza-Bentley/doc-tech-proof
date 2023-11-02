@@ -3,18 +3,17 @@ import './App.css';
 import {useState, useEffect} from 'react';
 import treeData from './tree.json';
 import { LeftNav } from './Components/LeftNav/LeftNav';
+import { Link, NavLink } from 'react-router-dom';
 
 function App() {
   return (
     <div className="App">
-      <LeftNav data={treeData}/>
-      <main className='main'>
-        <div>
-          DISPLAY CONTENT GOES HERE
+        <LeftNav data={treeData}/>
+        <div className='main'>
+          <button>Switch Content</button>        
         </div>
-      </main>
     </div>
   );
-}
+};
 
 export default App;

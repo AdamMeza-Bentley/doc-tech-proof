@@ -1,4 +1,3 @@
-import React from "react";
 
 export const List = ({header, listItems, topHeader}) => {
     const formatList = list => (
@@ -14,8 +13,12 @@ export const List = ({header, listItems, topHeader}) => {
     );
     
     const getListItemURL = item => item.children[0].children.url;
-    const getListItemText = item => item.children[0].children[0].children[0].value;
+    const getListItemText = item => findItemText(item)
                     
+    const findItemText = item => {
+        return item.value ? item.value : findItemText(item.children[0])
+    }
+
     const formatHeader = header => {
         const headerProps = {
             id: header.id,

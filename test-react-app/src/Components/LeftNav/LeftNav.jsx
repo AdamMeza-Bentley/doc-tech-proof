@@ -1,25 +1,7 @@
-import React, {useState, useEffect} from "react";
 import { List } from "../List/List";
 import './LeftNav.css';
 
 export const LeftNav = ({data}) => {
-    const [yaml, setYAML] = useState('');
-
-    const formatYAML = data => {
-        const yamlObj = data.find(child => child.type === "yaml")
-
-        // this is going to be a lot more involved in formatting the frontMatter
-        // getting rid of the extra strings
-        // we're gonan be going into the .value prop and turning that into an object 
-        return yamlObj;
-    };
-
-    
-    useEffect(() => {
-        setYAML(formatYAML(data.children));
-    }, []);
-
-
     const parseData = data => {
         return data.map((elem, index) => {
           if (elem.type === "heading" && data[index + 1]?.type === "list" ) {
@@ -44,3 +26,22 @@ export const LeftNav = ({data}) => {
         </nav>
     );
 };
+
+
+
+// YAML STUFF THAT IS NO LONGER USEFUL BUT ONE DAY MIGHT BE 
+    // const [yaml, setYAML] = useState('');
+
+    // const formatYAML = data => {
+    //     const yamlObj = data.find(child => child.type === "yaml")
+
+    //     // this is going to be a lot more involved in formatting the frontMatter
+    //     // getting rid of the extra strings
+    //     // we're gonan be going into the .value prop and turning that into an object 
+    //     return yamlObj;
+    // };
+
+    
+    // useEffect(() => {
+    //     setYAML(formatYAML(data.children));
+    // }, []);
