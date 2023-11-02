@@ -1,42 +1,40 @@
-import React, {useEffect, useState} from "react";
+import React from "react";
 
 export const List = ({header, listItems, topHeader}) => {
-    const [headerDisplay, setHeaderDisplay] = useState(''),
-          [listDisplay, setListDisplay] = useState('');
-
-    useEffect(() => {
-        setHeaderDisplay(formatHeader(header));
-        setListDisplay(formatList(listItems));
-        console.log(listItems)
-    }, []);
-
     const formatList = list => (
         list.children.map((child, index) => {
             return (
                 <ListItem
-                    text={child.children[0].children[0].children[0].value}
-                    url={child.children[0].children[0].url}
+                    text={getListItemText(child)}
+                    url={getListItemURL(child)}
                     key={index}
                 />
             );
         })
     );
+    
+    const getListItemURL = item => item.children[0].children.url;
+    const getListItemText = item => item.children[0].children[0].children[0].value;
                     
     const formatHeader = header => {
         const headerProps = {
             id: header.id,
             hValue: header.depth,
-            url: header.children[0].type === "link" ? header.children[0].url : null,
-            text: header.children[0].value ? header.children[0].value : header.children[0].children[0].value
+            url: checkForURL(header),
+            text: findText(header)
         };
 
         return ( <Header props={headerProps}/> );
     };
 
+    const checkForURL = header => header.children[0].type === "link" ? header.children[0].url : null;
+    const findText = header => header.children[0].value ? header.children[0].value : header.children[0].children[0].value;
+    // in order to use a .find() for this we'd have to ues recursion(???) to juts serach until we hit a text 
+
     return (
         <ul>
-            {headerDisplay}
-            {listDisplay}
+            {formatHeader(header)}
+            {formatList(listItems)}
         </ul>
     );
 };
