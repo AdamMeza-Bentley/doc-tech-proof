@@ -2,6 +2,7 @@ import { List } from "../List/List";
 import './LeftNav.css';
 
 export const LeftNav = ({data}) => {
+  console.log(data)
     const parseData = data => {
         return data.map((elem, index) => {
           if (elem.type === "heading" && data[index + 1]?.type === "list" ) {

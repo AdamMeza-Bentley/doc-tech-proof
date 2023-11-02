@@ -3,13 +3,23 @@ import './List.css'
 export const List = ({header, listItems, topHeader}) => {
     const formatList = list => (
         list.children.map((child, index) => {
-            return (
-                <ListItem
-                    text={findText(child)}
-                    url={findURL(child)}
-                    key={index}
-                />
-            );
+            if (child.children?.length > 1) {
+                return <List
+                            header={child}
+                            listItems={child.children[1]}
+                            key={index}
+                        />
+            } else {
+                return (
+                    <ListItem
+                        text={findText(child)}
+                        url={findURL(child)}
+                        key={index}
+                    />
+                );
+
+            }
+
         })
     );
 
