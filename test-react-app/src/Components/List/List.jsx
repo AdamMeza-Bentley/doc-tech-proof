@@ -1,38 +1,35 @@
+import './List.css'
 
 export const List = ({header, listItems, topHeader}) => {
     const formatList = list => (
         list.children.map((child, index) => {
             return (
                 <ListItem
-                    text={getListItemText(child)}
-                    url={getListItemURL(child)}
+                    text={findText(child)}
+                    url={findURL(child)}
                     key={index}
                 />
             );
         })
     );
-    
-    const getListItemURL = item => item.children[0].children.url;
-    const getListItemText = item => findItemText(item)
-                    
-    const findItemText = item => {
-        return item.value ? item.value : findItemText(item.children[0])
-    }
 
     const formatHeader = header => {
         const headerProps = {
             id: header.id,
             hValue: header.depth,
-            url: checkForURL(header),
+            url: findURL(header),
             text: findText(header)
         };
 
         return ( <Header props={headerProps}/> );
     };
 
-    const checkForURL = header => header.children[0].type === "link" ? header.children[0].url : null;
-    const findText = header => header.children[0].value ? header.children[0].value : header.children[0].children[0].value;
-    // in order to use a .find() for this we'd have to ues recursion(???) to juts serach until we hit a text 
+    const findURL = item => {
+        if (item.url) return item.url;
+        else return item.children ? findURL(item.children[0]) : null; 
+    };
+    
+    const findText = item => item.value ? item.value : findText(item.children[0]);
 
     return (
         <ul>
