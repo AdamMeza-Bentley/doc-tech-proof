@@ -1,13 +1,9 @@
 ### [Presentation Library](./index.md)
 
-&nbsp;
-
 ### Introduction
 
 - [Motivation](./motivation/index.md)
 - [Setting up](./setup/index.md)
-
-&nbsp;
 
 ### [Content](./content/index.md)
 
@@ -19,8 +15,6 @@
 - [Terminology](./content/Terminology.md)
 - [External Resources](./content/index.md#external-resources)
 
-&nbsp;
-
 ### [Hierarchies](./hierarchies/index.md)
 
 - [Rules](./hierarchies/index.md#rules)
@@ -31,20 +25,14 @@
 - [Terminology](./hierarchies/Terminology.md)
 - [External Resources](./hierarchies/index.md#external-resources)
 
-&nbsp;
-
 ### [Customization](./customization/index.md)
 
 - [Rules](./customization/index.md#rules)
 - [ECExpressions](./customization/ECExpressions.md)
 
-&nbsp;
-
 ### [Unified Selection](./unified-selection/index.md)
 
 - [External Resources](./unified-selection/index.md#external-resources)
-
-&nbsp;
 
 ### [Advanced](./advanced/index.md)
 
