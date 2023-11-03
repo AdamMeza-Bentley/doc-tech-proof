@@ -1,6 +1,6 @@
 import './List.css';
 
-export const List = ({ header, listItems, topHeader, formatHeader, findURL, findText }) => {
+export const List = ({ header, listItems, formatHeader, findURL, findText }) => {
   
   const formatList = list => {
     return list.children.map((child, index) => {
@@ -18,7 +18,8 @@ export const List = ({ header, listItems, topHeader, formatHeader, findURL, find
           text={findText(child)}
           url={findURL(child)}
           key={index}
-        /> );
+        />
+      );
     });
   };
 

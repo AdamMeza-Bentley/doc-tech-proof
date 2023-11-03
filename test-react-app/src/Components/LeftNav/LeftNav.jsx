@@ -1,8 +1,9 @@
 import { List } from "../List/List";
 import './LeftNav.css';
+import { createElement } from "react";
 
 export const LeftNav = ({data}) => {
-  
+
   const formatHeader = (header, index) => {
     const headerProps = {
         hValue: header.depth,
@@ -57,24 +58,7 @@ export const LeftNav = ({data}) => {
 
 const Header = ({props}) => {
   const {text, url, hValue} = props;
-  let headerJSX;
-
-  switch (hValue) {
-    case 1:
-      headerJSX = <h1>{text}</h1>;
-      break
-    case 2:
-      headerJSX = <h2>{text}</h2>;
-      break
-    case 3:
-      headerJSX = <h3>{text}</h3>;
-      break
-    case 4:
-      headerJSX = <h4>{text}</h4>;
-      break
-    default:
-      console.log("there was an error in the header switch");
-  };
+  const headerJSX = createElement(`h${hValue}`, undefined, text);
 
   return (
     <div
