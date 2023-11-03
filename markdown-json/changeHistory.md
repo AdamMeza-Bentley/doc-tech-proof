@@ -6,7 +6,6 @@
 
 - [Big Picture](./Roadmap.md)
 
----
 
 ### Versions
 - [4.0.0](./4.0.0.md)
@@ -24,9 +23,6 @@
 - [3.1.0](./3.1.0.md)
 
 - [3.0.0](./3.0.0.md)
-
-&nbsp;
-&nbsp;
 
 ### Previous Versions
 

@@ -5,7 +5,7 @@ import remarkFrontmatter from 'remark-frontmatter';
 import remarkStringify from 'remark-stringify';
 
 //this is reading all the relevant markdown files based on keyword
-const keywords = ['main', 'bis', 'presentation'];
+const keywords = ['main', 'bis', 'presentation', 'changeHistory'];
 const markdownContent = keywords.map(keyword => fs.readFileSync(`./${keyword}.md`, 'utf-8'));
 
 const markdownIntoJSON = async (markdown, keyword) => await unified()
