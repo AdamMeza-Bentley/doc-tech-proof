@@ -18,16 +18,15 @@ export const LeftNav = ({data}) => {
   };
 
   const findText = item => {
-    if (item.value) return item.value;
+    if (item.type === 'text') return item.value;
     else return findText(item.children[0]);
   };
 
-  const consecutiveHeaders = (first, second) => {
-    return first.type === "heading" && second?.type === "heading" 
-  };
+  const consecutiveHeaders = (first, second) => first.type === "heading" && second?.type === "heading";
 
   const parseData = data => {
     let mainHeader= '';
+
     const content = data.map((elem, index) => {
       if (elem.type === "heading" && data[index + 1]?.type === "list" ) {
         return ( 
