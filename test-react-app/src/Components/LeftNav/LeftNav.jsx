@@ -2,6 +2,7 @@ import { List } from "../List/List";
 import './LeftNav.css';
 
 export const LeftNav = ({data}) => {
+  
   const formatHeader = (header, index) => {
     const headerProps = {
         hValue: header.depth,
@@ -45,7 +46,6 @@ export const LeftNav = ({data}) => {
 
     content.unshift(mainHeader);
     return content;
-
   };
 
   return (
