@@ -1,8 +1,8 @@
 import './App.css';
 import {useState, useEffect} from 'react';
 import main from './main.json';
-import bis from './bis.json'
-import presentation from './presentation.json'
+import bis from './bis.json';
+import presentation from './presentation.json';
 import { LeftNav } from './Components/LeftNav/LeftNav';
 import { Route, Switch } from 'react-router-dom/cjs/react-router-dom.min';
 
